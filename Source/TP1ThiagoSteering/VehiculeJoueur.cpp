@@ -45,6 +45,13 @@ void AVehiculeJoueur::MoveRight(float DeltaTime)
 	SetActorLocation(Location);
 }
 
+void AVehiculeJoueur::MoveUp(float DeltaTime)
+{
+	FVector Location = GetActorLocation();
+	Location.Z += 10 * DeltaTime;
+	SetActorLocation(Location);
+}
+
 void AVehiculeJoueur::SetupInput()
 {
 	InputComponent = NewObject<UInputComponent>(this);
@@ -53,6 +60,7 @@ void AVehiculeJoueur::SetupInput()
 	{
 		InputComponent->BindAxis("MoveForward", this, &AVehiculeJoueur::MoveForward);
 		InputComponent->BindAxis("MoveRight", this, &AVehiculeJoueur::MoveRight);
+		InputComponent->BindAxis("MoveUp", this, &AVehiculeJoueur::MoveUp);
 
 		EnableInput(GetWorld()->GetFirstPlayerController());
 	}

@@ -31,6 +31,8 @@ public:
 		void MoveForward(float DeltaTime);
 	UFUNCTION()
 		void MoveRight(float DeltaTime);
+	UFUNCTION()
+		void MoveUp(float DeltaTime);
 
 	void SetupInput();
 
